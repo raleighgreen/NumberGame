@@ -27,12 +27,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnHigher: UIButton!
     @IBOutlet weak var btnRestart: UIButton!
     
+    var noOfGuessesMade: Int = 0
+    var totalGuesses: Int = 10
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startGame()
     }
     
     @IBAction func lowerPressed(_ sender: UIButton) {
+        
+        if noOfGuessesMade >= totalGuesses {
+            gameLost()
+            return
+        }
         
         higherNumber = lastGuessed
         lastGuessed = guessNumber(lowerNum: lowerNumber, higherNum: higherNumber)
@@ -45,6 +57,11 @@ class ViewController: UIViewController {
     }
     @IBAction func higherPressed(_ sender: UIButton) {
         
+        if noOfGuessesMade >= totalGuesses {
+            gameLost()
+            return
+        }
+        
         lowerNumber = lastGuessed
         lastGuessed = guessNumber(lowerNum: lowerNumber, higherNum: higherNumber)
         askQuestion()
@@ -56,6 +73,8 @@ class ViewController: UIViewController {
     }
     
     func startGame() {
+        
+        noOfGuessesMade = 0
         
         number1 = Int(arc4random_uniform(1000))
         number2 = Int(arc4random_uniform(1000))
@@ -71,6 +90,9 @@ class ViewController: UIViewController {
     }
     
     func guessNumber(lowerNum: Int, higherNum: Int) -> Int {
+        noOfGuessesMade += 1
+        remainingGuessesLabel.text = "\(totalGuesses-noOfGuessesMade)"
+        
         return (higherNum - lowerNum) / 2 + lowerNumber
     }
     
@@ -86,5 +108,9 @@ class ViewController: UIViewController {
         btnHigher.isHidden = hidden
     }
     
+    func gameLost() {
+        questionLabel.text = "You Won!"
+        hideButtons(hidden: true)
+    }
 }
 
