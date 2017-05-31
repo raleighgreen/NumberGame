@@ -34,15 +34,25 @@ class ViewController: UIViewController {
     
     @IBAction func lowerPressed(_ sender: UIButton) {
         
+        higherNumber = lastGuessed
+        lastGuessed = guessNumber(lowerNum: lowerNumber, higherNum: higherNumber)
+        askQuestion()
+        
     }
     @IBAction func yesPressed(_ sender: UIButton) {
-        
+        questionLabel.text = "I won!"
+        hideButtons(hidden: true)
     }
     @IBAction func higherPressed(_ sender: UIButton) {
         
+        lowerNumber = lastGuessed
+        lastGuessed = guessNumber(lowerNum: lowerNumber, higherNum: higherNumber)
+        askQuestion()
+        
     }
     @IBAction func restartPressed(_ sender: UIButton) {
-        
+        startGame()
+        hideButtons(hidden: false)
     }
     
     func startGame() {
@@ -68,6 +78,12 @@ class ViewController: UIViewController {
         
         questionLabel.text = "Is your number \(lastGuessed)?"
         
+    }
+    
+    func hideButtons(hidden: Bool) {
+        btnYes.isHidden = hidden
+        btnLower.isHidden = hidden
+        btnHigher.isHidden = hidden
     }
     
 }
