@@ -59,6 +59,9 @@
                                 <state key="normal" title="YES!">
                                     <color key="titleColor" red="0.021699186414480209" green="0.69381135702133179" blue="0.94773894548416138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="yesPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0cL-Op-s1A"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-wk-PhL">
                                 <rect key="frame" x="54" y="529" width="58" height="30"/>
@@ -66,6 +69,9 @@
                                 <state key="normal" title="◀ Lower">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="lowerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVd-4J-SEs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vm0-AA-NOi">
                                 <rect key="frame" x="254" y="529" width="63" height="30"/>
@@ -73,6 +79,9 @@
                                 <state key="normal" title="Higher ▶">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="higherPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rdi-A0-nfm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="guesses remaining..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Os4-7M-WqW">
                                 <rect key="frame" x="53" y="382" width="268" height="49"/>
@@ -94,6 +103,9 @@
                                 <state key="normal" title="restart">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="restartPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vhW-zJ-9hT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kb-Ph-mMI">
                                 <rect key="frame" x="53" y="439" width="268" height="49"/>
@@ -130,6 +142,15 @@
                             <constraint firstItem="yqe-1J-0K0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="wYb-cV-YpS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnHigher" destination="Vm0-AA-NOi" id="aAw-65-6gU"/>
+                        <outlet property="btnLower" destination="uBY-wk-PhL" id="Yp5-yg-b2B"/>
+                        <outlet property="btnRestart" destination="Z47-M4-gLR" id="tP3-bs-hHc"/>
+                        <outlet property="btnYes" destination="7s7-Ak-hMO" id="1XO-UN-R29"/>
+                        <outlet property="messageLabel" destination="IkZ-NG-si2" id="afb-2U-5ai"/>
+                        <outlet property="questionLabel" destination="IeZ-73-DXg" id="Nxu-Wl-f1T"/>
+                        <outlet property="remainingGuessesLabel" destination="5kb-Ph-mMI" id="PMG-5A-tVe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
