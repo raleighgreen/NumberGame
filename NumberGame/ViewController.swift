@@ -29,20 +29,45 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        startGame()
     }
     
     @IBAction func lowerPressed(_ sender: UIButton) {
-        print("lowerPressed")
+        
     }
     @IBAction func yesPressed(_ sender: UIButton) {
-        print("yesPressed")
+        
     }
     @IBAction func higherPressed(_ sender: UIButton) {
-        print("higherPressed")
+        
     }
     @IBAction func restartPressed(_ sender: UIButton) {
-        print("restartPressed")
+        
+    }
+    
+    func startGame() {
+        
+        number1 = Int(arc4random_uniform(1000))
+        number2 = Int(arc4random_uniform(1000))
+        
+        lowerNumber = number1 < number2 ? number1 : number2
+        higherNumber = number1 > number2 ? number1 : number2
+    
+        lastGuessed = guessNumber(lowerNum: lowerNumber, higherNum: higherNumber)
+        messageLabel.text = "Think of a number between \(lowerNumber) & \(higherNumber)"
+        
+        askQuestion()
+        
+    }
+    
+    func guessNumber(lowerNum: Int, higherNum: Int) -> Int {
+        return (higherNum - lowerNum) / 2 + lowerNumber
+    }
+    
+    func askQuestion() {
+        
+        questionLabel.text = "Is your number \(lastGuessed)?"
+        
     }
     
 }
